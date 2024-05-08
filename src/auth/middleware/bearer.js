@@ -5,6 +5,8 @@
 const { users } = require('../models/index.js');
 
 module.exports = async (req, res, next) => {
+
+  console.log('here')
   if (!req.headers.authorization) {
     console.error('No authorization header provided');
     return res.status(401).send('No authorization header provided');
@@ -14,12 +16,16 @@ module.exports = async (req, res, next) => {
     // Log the entire authorization header for debugging
     console.log('Authorization Header:', req.headers.authorization);
 
-    const tokenParts = req.headers.authorization.split('');
+    const tokenParts = req.headers.authorization.split(' ');
+  console.log({
+    tokenParts
+  })
     if (tokenParts[0] !== 'Bearer' || tokenParts.length !== 2) {
       console.error('Invalid Authorization Header:', req.headers.authorization);
       throw new Error('Invalid Authorization Header');
     }
 
+    console.log('wokring')
     const token = tokenParts[1];
     console.log('Extracted Token:', token);
 
