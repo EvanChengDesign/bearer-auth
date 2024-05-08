@@ -25,7 +25,7 @@ The server is initialized in src/server.js, which sets up middleware, routes, an
 
 Middleware modules are utilized to handle JSON payloads, logging, and Sequelize session transactions. They are initialized in `src/server.js` and configured to ensure smooth operation between requests and database interactions.
 
-## Error Handling Modules"
+## Error Handling Modules
 
 Error handling is critical for gracefully managing and logging issues that arise during API operations. Our implementation includes:
 
