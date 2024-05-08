@@ -1,3 +1,5 @@
+//models/index.js
+
 'use strict';
 
 require('dotenv').config();
@@ -6,6 +8,7 @@ const userSchema = require('./users.js');
 
 const environment = process.env.NODE_ENV;
 let DATABASE_URL = process.env.DATABASE_URL;
+
 let db_config = {
   logging: false,
 };
@@ -32,4 +35,6 @@ const sequelize = new Sequelize(DATABASE_URL, db_config);
 module.exports = {
   db: sequelize,
   users: userSchema(sequelize, DataTypes),
+  
 };
+console.log('Users model initialized:', userSchema(sequelize, DataTypes));
