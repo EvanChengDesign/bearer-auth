@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
     // Log the entire authorization header for debugging
     console.log('Authorization Header:', req.headers.authorization);
 
-    const tokenParts = req.headers.authorization.split(' ');
+    const tokenParts = req.headers.authorization.split('');
     if (tokenParts[0] !== 'Bearer' || tokenParts.length !== 2) {
       console.error('Invalid Authorization Header:', req.headers.authorization);
       throw new Error('Invalid Authorization Header');
